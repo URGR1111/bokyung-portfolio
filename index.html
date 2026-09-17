@@ -219,15 +219,84 @@
           Also shows the Dalchip package.</p>
         </div>
 
-        <h4 class="block-title">캐릭터 일관성 — 턴어라운드 &amp; 3D 모델</h4>
-        <p class="block-desc">
-          캐릭터가 장면마다 얼굴·비율·색감이 조금씩 달라지는 문제를 해결하기 위해, 정면·측면·후면 기준 이미지와 컬러 팔레트를 먼저 만들었습니다.
-          얼굴·볼터치·꼬리·귀 디테일까지 세부 기준을 정해, 이후 모든 장면 생성 시 이 시트를 기준으로 삼았습니다.
-          3D 모델로도 만들어 어느 각도에서 봐도 스타일이 흐트러지지 않는지 확인했습니다. (마우스로 드래그하면 회전합니다)
-        </p>
+        <h4 class="block-title">캐릭터 일관성 확보: 정밀 프롬프트 제어와 턴어라운드 시트 활용</h4>
+
+        <p class="ba-title">캐릭터 일관성</p>
+        <div class="ba-grid">
+          <figure class="ba-item">
+            <div class="ba-media ba-media-portrait">
+              <img src="images/Before_1.jpg" alt="프롬프트 제어 전 — 그림체와 복장 디테일이 무너진 컷" loading="lazy" />
+            </div>
+            <figcaption><span class="ba-tag ba-tag-before">Before</span>디테일이 무너진 B컷</figcaption>
+          </figure>
+          <div class="ba-arrow" aria-hidden="true">→</div>
+          <figure class="ba-item">
+            <div class="ba-media ba-media-portrait">
+              <video src="images/after_1.mp4" controls muted loop playsinline preload="metadata"></video>
+            </div>
+            <figcaption><span class="ba-tag ba-tag-after">After</span>프롬프트 제어로 디테일을 살린 최종 A컷</figcaption>
+          </figure>
+        </div>
+
+        <p class="ba-title">제품(패키지) 일관성</p>
+        <div class="ba-grid">
+          <figure class="ba-item">
+            <div class="ba-media">
+              <img src="images/Before_2.jpeg" alt="프롬프트 제어 전 — 패키지 디자인과 로고가 뭉개진 컷" loading="lazy" />
+            </div>
+            <figcaption><span class="ba-tag ba-tag-before">Before</span>디테일이 무너진 B컷</figcaption>
+          </figure>
+          <div class="ba-arrow" aria-hidden="true">→</div>
+          <figure class="ba-item">
+            <div class="ba-media">
+              <img src="images/after_2.jpeg" alt="프롬프트 제어 후 — 패키지 디자인과 로고가 정확히 재현된 최종 컷" loading="lazy" />
+            </div>
+            <figcaption><span class="ba-tag ba-tag-after">After</span>프롬프트 제어로 디테일을 살린 최종 A컷</figcaption>
+          </figure>
+        </div>
+
+        <div class="par-block">
+          <div class="par-item">
+            <span class="par-label">Problem</span>
+            <h5>통제되지 않는 AI의 무작위성</h5>
+            <p>
+              초기에는 턴어라운드 시트를 기준 이미지(Reference)로 삽입했음에도 불구하고, 씬이나 카메라 앵글이 바뀔 때마다
+              캐릭터의 복장(앞치마) 디테일이 사라지거나 그림체가 무너지는 문제가 지속적으로 발생했습니다.
+            </p>
+          </div>
+          <div class="par-item">
+            <span class="par-label">Action</span>
+            <h5>집요한 트러블슈팅과 프롬프트 최적화</h5>
+            <p>AI의 무작위성에 타협하지 않고, 의도한 비주얼을 끝까지 구현하기 위해 3단계의 통제 워크플로우를 거쳤습니다.</p>
+            <ul class="par-list">
+              <li>
+                <strong>시각적 기준점 강력 고정</strong>
+                정면·측면·후면 5방향 턴어라운드 시트와 3D 모델을 자체 제작해 AI가 인식할 절대적인 시각 기준을 확립했습니다.
+              </li>
+              <li>
+                <strong>프롬프트 정밀 제어 (Fixed Prompt)</strong>
+                프롬프트 최상단에 <code>Dalchibi is fixed and generated</code>,
+                <code>equipped with a cute magical girl lace apron</code> 등 절대 변해선 안 되는 필수 디테일 요소를
+                고정값으로 설정하여 변수를 차단했습니다.
+              </li>
+              <li>
+                <strong>반복 생성과 앵글 제어</strong>
+                이미지에서 영상으로 변환되는 찰나의 간극을 좁히기 위해, 원하는 퀄리티가 나올 때까지 동일한 씬을
+                수십 차례 반복 생성(Regeneration)하며 파라미터와 앵글을 다듬었습니다.
+              </li>
+            </ul>
+          </div>
+          <div class="par-item">
+            <span class="par-label">Result</span>
+            <h5>의도한 디테일과 톤앤매너 완벽 구현</h5>
+            <p>그 결과, 초기 기획했던 마법소녀 컨셉의 디테일이 완벽하게 유지되는 최종 캐릭터 영상을 제작할 수 있었습니다.</p>
+          </div>
+        </div>
+
+        <p class="block-desc ba-note">AI가 인식할 시각 기준으로 자체 제작한 턴어라운드 시트와 3D 모델입니다. (마우스로 드래그하면 회전합니다)</p>
         <div class="consistency-grid">
           <div class="consistency-card">
-            <img src="images/dalchibi-turnaround.png" alt="달치비 캐릭터 5방향 턴어라운드" />
+            <img src="images/dalchibi-turnaround.png" alt="달치비 캐릭터 5방향 턴어라운드" loading="lazy" />
           </div>
           <div class="consistency-card">
             <model-viewer
@@ -243,10 +312,6 @@
             ></model-viewer>
           </div>
         </div>
-        <p class="block-desc">
-          기준을 만들어도 싸움은 끝나지 않았습니다. 턴어라운드 시트를 기준으로 삼았지만 실제 장면을 생성할 때마다 캐릭터가 여전히 조금씩 달라졌고,
-          원하는 수준에 이르기까지 같은 장면을 수십 차례 다시 생성해야 했습니다.
-        </p>
 
         <h4 class="block-title">영상 기획의 근거</h4>
         <p class="block-desc">
