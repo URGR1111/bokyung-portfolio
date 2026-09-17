@@ -59,7 +59,7 @@ sections.forEach((section) => sectionObserver.observe(section));
 
 // ===== 스크롤 시 등장 애니메이션 =====
 const revealTargets = document.querySelectorAll(
-  '.timeline-item, .award-chip, .flagship, .project-card, .skill-group, .section-title, .section-lead'
+  '.timeline-item, .award-chip, .project-card, .skill-group, .section-title, .section-lead'
 );
 revealTargets.forEach((el) => el.classList.add('reveal'));
 const revealObserver = new IntersectionObserver((entries) => {
