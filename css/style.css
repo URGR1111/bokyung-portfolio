@@ -521,6 +521,29 @@ img { max-width: 100%; display: block; }
 
 .track-list { margin-top: 0; margin-bottom: 8px; }
 
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.photo-item { margin: 0; }
+.photo-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.photo-media img { width: 100%; height: 100%; object-fit: cover; }
+.photo-item figcaption {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-align: center;
+}
+
 .turnaround-card {
   background: #fff;
   border-radius: var(--radius-sm);
@@ -741,4 +764,5 @@ img { max-width: 100%; display: block; }
   .contribution-box { align-self: stretch; }
   .par-block { padding: 20px; }
   .ba-grid { gap: 10px; }
+  .photo-grid { grid-template-columns: 1fr; }
 }
