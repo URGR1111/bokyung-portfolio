@@ -603,11 +603,30 @@ img { max-width: 100%; display: block; }
   vertical-align: middle;
 }
 
+.stat-scope {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin: -4px 0 14px;
+}
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+.ads-shot { margin: 0 0 24px; }
+.ads-shot a {
+  display: block;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #fff;
+}
+.ads-shot img { width: 100%; height: auto; }
+.ads-shot figcaption {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
 }
 .stat {
   display: flex;
